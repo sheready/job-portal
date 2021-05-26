@@ -1,0 +1,25 @@
+{% extends 'portal/main.html' %}
+{% block content %}
+
+<div class="card text-center">
+    <div class="card-header">
+      Employee Information
+    </div>
+    <div class="card-body">
+        {% for k in employee %}
+      <h5 class="card-title">Name:{{k.employeename}}</h5>
+      <h5 class="card-title">Email:{{k.email}}</h5>
+      {% endfor %}
+     
+        {% for g in status %}
+        <p class="card-text">Job status:{{g.status}}</p>
+        {% endfor %}
+      <a href="#" class="btn btn-primary">Allocate Job</a>
+      
+    </div>
+    <div class="card-footer text-muted">
+      Date allocated:
+    </div>
+  </div>
+
+{% endblock %}

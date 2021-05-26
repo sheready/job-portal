@@ -1,0 +1,16 @@
+{% extends 'portal/main.html' %}
+{% load static %}
+{% block content %}
+<div class="card">
+    <h5 class="card-header">CREATE A JOB POST</h5>
+    <div class="card-body">
+      <form action = "" method='POST'>
+        {% csrf_token %}
+        {{form}}
+    <input class="btn btn-primary" type="submit" name="Submit">
+      </form>
+    </div>
+  </div>
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'portal/main.html' %}
+{% block content %}
+
+<div class="card text-center">
+ 
+  <div class="card-body">
+    <h5 class="card-title">Post a job for employees to see </h5>
+    
+      <a href="{% url 'createjobpost' %}" class="btn btn-primary">Post a job</a>
+    
+  </div>
+ 
+</div>
+
+<table class="table table-hover">
+    <thead>
+      <tr>
+       
+        <th scope="col">Employee Name</th>
+        <th scope="col">Employee Email</th>
+        <th scope="col">Job Status</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for x in details %}
+      
+          <tr>
+          
+          <td><a class="btn btn-sm btn-info" href="{% url 'employee' x.employee.id %}">{{ x.employee.employeename}}</a></td>
+          <td>{{ x.employee.email}}</td>
+          
+          <td>{{ x.status}}</td>
+        </tr>
+      {% endfor %}
+    </tbody>
+    
+  </table>
+  <br><br>
+  <hr><hr>
+  <br><br>
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Update</th>
+        <th scope="col">Job Name</th>
+       
+        <th scope="col">Job Instruction</th>
+        <th scope="col">Company Name</th>
+        <th scope="col">Delete</th>
+
+        
+      </tr>
+    </thead>
+    <tbody>
+        {% for z in jobs %}
+      
+          <tr>
+          
+            <td><a class="btn btn-sm btn-info" href="{% url 'updatejobpost' z.id %}">Update Job</a></td>
+            <td>{{ z.jobpost}}</td>
+            
+            <td>{{ z.jobinstruction}}</td>
+
+            {% for t in details %}
+            <td>{{ t.companyname}}</td>
+            {% endfor %}
+            <td><a class="btn btn-sm btn-danger" href="{% url 'deletejobpost' z.id %}">Delete Job</a></td>
+        </tr>
+      {% endfor %}
+    </tbody>
+  </table>
+
+{% endblock %}

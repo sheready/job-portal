@@ -1,0 +1,23 @@
+{% extends 'portal/main.html' %}
+{% block content %}
+{% for i in jobs %}
+<div class="card text-center">
+    <div class="card-header">
+      {{ i.jobpost}}
+    </div>
+    <div class="card-body">
+      <h2 class="card-title">{{i.companyname}}</h2>
+      <h3 class="card-text">{{ i.jobinstruction}}</h3>
+      <p class="card-text">{{ i.location}}</p>
+    
+
+      <a href="#" class="btn btn-primary" id="apply">Apply</a>  
+      <p id="message"></p>
+      
+      
+    </div>
+    <div class="card-footer text-muted">
+      {{i.date_created}}
+    </div>
+{% endfor %}
+{% endblock %}
